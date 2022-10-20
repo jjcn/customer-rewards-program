@@ -31,5 +31,5 @@ where `yearMonth` is the year and month to add up reward points.
 GET `/api/rewards/{yearMonth}/3-months-period`
 where `yearMonth` is the year and month with which the 3-month period starts.
 ### NOTE
-`yearMonth` is both URLs should be formatted `YYYY-MM`, for example:
+`yearMonth` in both URLs should be formatted `YYYY-MM`, for example:
 `/api/rewards/2021-12`, `/api/rewards/2021-10/3-months-period`
