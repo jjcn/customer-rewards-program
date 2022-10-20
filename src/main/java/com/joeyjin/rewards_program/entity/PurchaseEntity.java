@@ -1,9 +1,10 @@
 package com.joeyjin.rewards_program.entity;
 
+import com.joeyjin.rewards_program.util.YearMonthIntegerType;
+import org.hibernate.annotations.TypeDef;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDate;
-import java.time.Month;
 import java.time.YearMonth;
 
 /**
@@ -12,6 +13,8 @@ import java.time.YearMonth;
  */
 @Entity
 @Table(name = "purchase")
+@TypeDef(typeClass = YearMonthIntegerType.class,
+        defaultForType = YearMonth.class)
 public class PurchaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,7 +26,8 @@ public class PurchaseEntity {
     private Long customerId;
 
     @NotBlank
-    @Column(name = "yearmonth")
+    @Column(name = "yearmonth",
+            columnDefinition = "date")
     private YearMonth yearmonth;
 
     @NotBlank
@@ -60,5 +64,15 @@ public class PurchaseEntity {
 
     public void setAmount(Integer amount) {
         this.amount = amount;
+    }
+
+    @Override
+    public String toString() {
+        return "PurchaseEntity{" +
+                "id=" + id +
+                ", customerId=" + customerId +
+                ", yearmonth=" + yearmonth +
+                ", amount=" + amount +
+                '}';
     }
 }

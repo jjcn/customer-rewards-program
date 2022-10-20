@@ -1,7 +1,5 @@
 package com.joeyjin.rewards_program.entity;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.time.YearMonth;
 
 /**
@@ -25,13 +23,13 @@ public class RewardEntity {
      */
     private Integer monthSpan;
 
-    private Integer amount;
+    private Integer point;
 
-    public RewardEntity(Long customerId, YearMonth yearmonth, Integer monthSpan, Integer amount) {
+    public RewardEntity(Long customerId, YearMonth yearmonth, Integer monthSpan, Integer point) {
         this.customerId = customerId;
         this.yearmonth = yearmonth;
         this.monthSpan = monthSpan;
-        this.amount = amount;
+        this.point = point;
     }
 
     public Long getCustomerId() {
@@ -46,7 +44,17 @@ public class RewardEntity {
         return monthSpan;
     }
 
-    public Integer getAmount() {
-        return amount;
+    public Integer getPoint() {
+        return point;
+    }
+
+    @Override
+    public String toString() {
+        return "RewardEntity{" +
+                "customerId=" + customerId +
+                ", yearmonth=" + yearmonth +
+                ", monthSpan=" + monthSpan +
+                ", point=" + point +
+                '}';
     }
 }
