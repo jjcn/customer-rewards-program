@@ -18,7 +18,7 @@ public class RewardPointCalculator {
         return calculatePointHelper(purchase.getAmount());
     }
 
-    private static Integer calculatePointHelper(int amount) {
+    private static Integer calculatePointHelper(int amount) throws IllegalArgumentException {
         if (amount < 0) {
             throw new IllegalArgumentException("The amount of purchase should be a non-negative integer.");
         }

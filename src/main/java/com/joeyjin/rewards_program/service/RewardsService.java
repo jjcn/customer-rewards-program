@@ -5,6 +5,7 @@ import com.joeyjin.rewards_program.entity.RewardEntity;
 
 import java.time.YearMonth;
 import java.util.List;
+import java.util.Map;
 
 public interface RewardsService {
     /**
@@ -33,5 +34,5 @@ public interface RewardsService {
      * @param start is the starting yearMonth of a 3-month period.
      * @return a List of rewards per customer in 3 months.
      */
-    List<RewardEntity> getTotalPointsWithin3Months(YearMonth start);
+    List<RewardEntity> get3MonthsRewards(YearMonth start);
 }
