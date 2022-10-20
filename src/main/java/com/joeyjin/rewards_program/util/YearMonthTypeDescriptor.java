@@ -23,7 +23,7 @@ public class YearMonthTypeDescriptor extends AbstractTypeDescriptor<YearMonth> {
     }
 
     @Override
-    public String toString( YearMonth value) {
+    public String toString(YearMonth value) {
         return value.toString();
     }
 

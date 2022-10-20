@@ -36,22 +36,8 @@ public class RewardsRestController {
      */
     @GetMapping(value = "/{yearMonth}")
     public ResponseEntity<?> getMonthlyRewards(@PathVariable("yearMonth") YearMonth yearMonth) {
-//        System.out.println(yearMonth);
         List<RewardEntity> rewards = rewardsService.getMonthlyRewards(yearMonth);
-//        System.out.println(rewards.size());
-//        rewards.stream().forEach(System.out::println);
         return new ResponseEntity<List<RewardEntity>>(rewards, HttpStatus.OK);
-    }
-
-    /**
-     * Testing
-     * @return
-     */
-    @GetMapping(value = "/2021-12/test")
-    public ResponseEntity<?> getCustomerPurchases() {
-        return new ResponseEntity<List<RewardEntity>>(
-                rewardsService.getMonthlyRewards(YearMonth.of(2021, 12)),
-                HttpStatus.OK);
     }
 
     /**
