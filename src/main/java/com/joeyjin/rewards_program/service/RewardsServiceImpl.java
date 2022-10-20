@@ -4,6 +4,7 @@ import com.joeyjin.rewards_program.dao.PurchaseRepository;
 import com.joeyjin.rewards_program.entity.PurchaseEntity;
 
 import java.time.Month;
+import java.time.YearMonth;
 import java.util.List;
 import java.util.Map;
 
@@ -21,23 +22,26 @@ public class RewardsServiceImpl implements RewardsService {
     }
 
     @Override
-    public List<PurchaseEntity> findAllPurchasesWithin3Months(Month start) {
-        return null;
-    }
-
-
-    @Override
-    public boolean isWithin3Months(Month start, Month monthToCheck) {
-        return false;
-    }
-
-    @Override
-    public Map<Long, Integer> getMonthlyPoints(List<PurchaseEntity> purchases, Month month) {
+    public List<PurchaseEntity> findAllPurchasesWithin3Months(YearMonth start) {
         return null;
     }
 
     @Override
-    public Map<Long, Integer> getTotalPointsWithin3Months(List<PurchaseEntity> purchases, Month start) {
+    public boolean isWithin3Months(YearMonth start, YearMonth yearMonthToCheck) {
+        YearMonth end = start.plusMonths(2); // the starting month is included in the period
+        System.out.println(end);
+        return  (start.equals(yearMonthToCheck) | start.isBefore(yearMonthToCheck)) &
+                (end.equals(yearMonthToCheck) | end.isAfter(yearMonthToCheck));
+    }
+
+    @Override
+    public Map<Long, Integer> getMonthlyPoints(List<PurchaseEntity> purchases, YearMonth month) {
         return null;
     }
+
+    @Override
+    public Map<Long, Integer> getTotalPointsWithin3Months(List<PurchaseEntity> purchases, YearMonth start) {
+        return null;
+    }
+
 }

@@ -17,6 +17,7 @@ public class PurchaseEntity {
     @NotBlank
     @Column(name = "yearmonth")
     private YearMonth yearmonth;
+
     @NotBlank
     @Column(name = "amount")
     private Integer amount;
