@@ -9,10 +9,4 @@ import java.util.List;
 
 @Repository
 public interface PurchaseRepository extends JpaRepository<PurchaseEntity, Long> {
-    /**
-     * Find a purchase record by the month.
-     * @param month is a java.time.Month enum
-     * @return a List of purchases
-     */
-    List<PurchaseEntity> findByMonth(Month month);
 }

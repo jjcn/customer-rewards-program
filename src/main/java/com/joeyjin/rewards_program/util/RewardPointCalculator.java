@@ -1,5 +1,7 @@
 package com.joeyjin.rewards_program.util;
 
+import com.joeyjin.rewards_program.entity.PurchaseEntity;
+
 public class RewardPointCalculator {
     /**
      * Calculate the points earned based on the amount spent.
@@ -9,15 +11,18 @@ public class RewardPointCalculator {
      * plus 1 point for every dollar spent over $50 in each transaction.
      *
      * e.g. a $120 purchase = 2x$20 + 1x$50 = 90 points)
-     * @param amount is the amount of money spent in one transaction.
+     * @param purchase is a transaction.
      * @return the points earned through this transaction.
      */
-    public static Integer calculatePoint(int amount) {
+    public static Integer calculatePoint(PurchaseEntity purchase) {
+        return calculatePointHelper(purchase.getAmount());
+    }
+
+    private static Integer calculatePointHelper(int amount) {
         if (amount < 0) {
             throw new IllegalArgumentException("The amount of purchase should be a non-negative integer.");
         }
-        Integer point = 1 * Math.min(50, Math.max(0, amount - 50)) + // 1 point for every dollar spent (50, 100]
+        return Math.min(50, Math.max(0, amount - 50)) + // 1 point for every dollar spent (50, 100]
                 2 * Math.max(0, amount - 100); // 2 points for every dollar spent (100, +inf)
-        return point;
     }
 }

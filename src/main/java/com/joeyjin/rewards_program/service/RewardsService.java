@@ -1,10 +1,10 @@
 package com.joeyjin.rewards_program.service;
 
 import com.joeyjin.rewards_program.entity.PurchaseEntity;
+import com.joeyjin.rewards_program.entity.RewardEntity;
 
 import java.time.YearMonth;
 import java.util.List;
-import java.util.Map;
 
 public interface RewardsService {
     /**
@@ -12,21 +12,26 @@ public interface RewardsService {
      * @param start is the starting yearMonth of the period.
      * @return a List of all purchases within a 3-month period.
      */
-    List<PurchaseEntity> findAllPurchasesWithin3Months(YearMonth start);
+    List<PurchaseEntity> findAllPurchasesIn3Months(YearMonth start);
+
+    /**
+     * Find all purchases that happen within in 1 month.
+     * @param targetYearMonth is the target yearMonth.
+     * @return a List of all purchases within a month.
+     */
+    List<PurchaseEntity> findAllPurchasesInAMonth(YearMonth targetYearMonth);
 
     /**
      * Get the rewards earned by every customer for a certain month.
-     * @param purchases is a list of purchases.
-     * @param yearMonth the yearMonth to calculate points.
-     * @return a Map of the points earned per customer in this month.
+     * @param targetYearMonth the yearMonth to calculate points.
+     * @return a List of rewards per customer in this month.
      */
-    Map<Long, Integer> getMonthlyPoints(List<PurchaseEntity> purchases, YearMonth yearMonth);
+    List<RewardEntity> getMonthlyRewards(YearMonth targetYearMonth);
 
     /**
      * Get the rewards earned by every customer in total.
-     * @param purchases is a list of purchases.
      * @param start is the starting yearMonth of a 3-month period.
-     * @return a Map of the points earned per customer in this month.
+     * @return a List of rewards per customer in 3 months.
      */
-    Map<Long, Integer> getTotalPointsWithin3Months(List<PurchaseEntity> purchases, YearMonth start);
+    List<RewardEntity> getTotalPointsWithin3Months(YearMonth start);
 }

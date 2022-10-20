@@ -8,8 +8,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RewardsServiceImplTest {
 
-    RewardsService rs = new RewardsServiceImpl();
-
     @Test
     void findAllPurchasesWithin3MonthsTest() {
     }

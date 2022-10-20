@@ -6,6 +6,10 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.YearMonth;
 
+/**
+ * A class for customer purchase.
+ * Consists of customer id, the year & month of the purchase, and the amount of purchase.
+ */
 @Entity
 @Table(name = "purchase")
 public class PurchaseEntity {
@@ -13,6 +17,10 @@ public class PurchaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", updatable = false, nullable = false)
     private Long id;
+
+    @NotBlank
+    @Column(name = "customerid")
+    private Long customerId;
 
     @NotBlank
     @Column(name = "yearmonth")
@@ -28,6 +36,14 @@ public class PurchaseEntity {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
     public YearMonth getYearMonth() {
