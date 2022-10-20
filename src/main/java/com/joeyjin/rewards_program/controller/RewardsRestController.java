@@ -1,4 +1,4 @@
-package com.joeyjin.rewardsProgram.controller;
+package com.joeyjin.rewards_program.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

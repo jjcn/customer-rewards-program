@@ -1,8 +1,10 @@
-package com.joeyjin.rewardsProgram.entity;
+package com.joeyjin.rewards_program.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDate;
 import java.time.Month;
+import java.time.YearMonth;
 
 @Entity
 @Table(name = "purchase")

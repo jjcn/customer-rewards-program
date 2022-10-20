@@ -1,9 +1,7 @@
-package com.joeyjin.rewardsProgram.entity;
+package com.joeyjin.rewards_program.entity;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
-import java.time.LocalDate;
 import java.time.Month;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,13 +25,13 @@ class PurchaseEntityTest {
     }
 
     @Test
-    void getId() {
+    void getIdTest() {
         assertEquals(Long.valueOf(1), generate0().getId());
         assertEquals(Long.valueOf(2), generate100().getId());
     }
 
     @Test
-    void setId() {
+    void setIdTest() {
         PurchaseEntity dummy = new PurchaseEntity();
         dummy.setId(1L);
         assertEquals(Long.valueOf(1), dummy.getId());
@@ -42,13 +40,13 @@ class PurchaseEntityTest {
     }
 
     @Test
-    void getMonth() {
+    void getMonthTest() {
         assertEquals(Month.JANUARY, generate0().getMonth());
         assertEquals(Month.FEBRUARY, generate100().getMonth());
     }
 
     @Test
-    void setMonth() {
+    void setMonthTest() {
         PurchaseEntity dummy = new PurchaseEntity();
         dummy.setMonth(Month.OCTOBER);
         assertEquals(null, dummy.getId());
@@ -57,13 +55,13 @@ class PurchaseEntityTest {
     }
 
     @Test
-    void getAmount() {
+    void getAmountTest() {
         assertEquals(0, generate0().getAmount());
         assertEquals(100, generate100().getAmount());
     }
 
     @Test
-    void setAmount() {
+    void setAmountTest() {
         PurchaseEntity dummy = new PurchaseEntity();
         dummy.setAmount(Integer.MAX_VALUE);
         assertEquals(null, dummy.getId());
