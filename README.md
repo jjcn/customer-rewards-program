@@ -8,18 +8,18 @@ dollar spent over $50 in each transaction.
 
 ## Dataset
 The H2 database is pre-populated with data:
-customer ID | YearMonth | Amount of Purchase 
-:---: | :---: | :---: 
-1 | 202112 | 1
-1 | 202112 | 50
-1 | 202112 | 75
-1 | 202201 | 100
-2 | 202201 | 101
-2 | 202201 | 0
-1 | 202202 | 100
-2 | 202202 | 100
-1 | 202203 | 100
-3 | 202203 | 100
+customer ID | YearMonth | Amount of Purchase | Reward Points Earned
+:---: | :---: | :---:  | :---: 
+1 | 202112 | 1 | 0
+1 | 202112 | 50 | 0
+1 | 202112 | 75  | 25
+1 | 202201 | 100 | 50
+2 | 202201 | 101 | 52
+2 | 202201 | 0 | 0
+1 | 202202 | 100 | 50
+2 | 202202 | 100 | 50
+1 | 202203 | 100 | 50
+3 | 202203 | 100 | 50
 
 ## RESTful API
 The service is running on `http://localhost:8080/`
