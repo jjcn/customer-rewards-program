@@ -15,9 +15,8 @@ public class PurchaseEntity {
     private Long id;
 
     @NotBlank
-    @Column(name = "month")
-    private Month month;
-
+    @Column(name = "yearmonth")
+    private YearMonth yearmonth;
     @NotBlank
     @Column(name = "amount")
     private Integer amount;
@@ -30,12 +29,12 @@ public class PurchaseEntity {
         this.id = id;
     }
 
-    public Month getMonth() {
-        return month;
+    public YearMonth getYearMonth() {
+        return yearmonth;
     }
 
-    public void setMonth(Month month) {
-        this.month = month;
+    public void setYearMonth(YearMonth yearmonth) {
+        this.yearmonth = yearmonth;
     }
 
     public Integer getAmount() {

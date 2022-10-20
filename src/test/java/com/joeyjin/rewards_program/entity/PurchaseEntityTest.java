@@ -2,26 +2,26 @@ package com.joeyjin.rewards_program.entity;
 
 import org.junit.jupiter.api.Test;
 
-import java.time.Month;
+import java.time.YearMonth;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PurchaseEntityTest {
 
-    PurchaseEntity generateDummy(Long id, Month month, Integer amount) {
+    PurchaseEntity generateDummy(Long id, YearMonth yearMonth, Integer amount) {
         PurchaseEntity dummy = new PurchaseEntity();
         dummy.setId(id);
-        dummy.setMonth(month);
+        dummy.setYearMonth(yearMonth);
         dummy.setAmount(amount);
         return dummy;
     }
 
     PurchaseEntity generate0() {
-        return generateDummy(1L, Month.JANUARY,0);
+        return generateDummy(1L, YearMonth.of(2022, 1),0);
     }
 
     PurchaseEntity generate100() {
-        return generateDummy(2L, Month.FEBRUARY,100);
+        return generateDummy(2L, YearMonth.of(2022, 2),100);
     }
 
     @Test
@@ -35,23 +35,23 @@ class PurchaseEntityTest {
         PurchaseEntity dummy = new PurchaseEntity();
         dummy.setId(1L);
         assertEquals(Long.valueOf(1), dummy.getId());
-        assertEquals(null, dummy.getMonth());
-        assertEquals(null, dummy.getAmount());
+        assertNull(dummy.getYearMonth());
+        assertNull(dummy.getAmount());
     }
 
     @Test
     void getMonthTest() {
-        assertEquals(Month.JANUARY, generate0().getMonth());
-        assertEquals(Month.FEBRUARY, generate100().getMonth());
+        assertEquals(YearMonth.of(2022, 1), generate0().getYearMonth());
+        assertEquals(YearMonth.of(2022, 2), generate100().getYearMonth());
     }
 
     @Test
     void setMonthTest() {
         PurchaseEntity dummy = new PurchaseEntity();
-        dummy.setMonth(Month.OCTOBER);
-        assertEquals(null, dummy.getId());
-        assertEquals(Month.OCTOBER, dummy.getMonth());
-        assertEquals(null, dummy.getAmount());
+        dummy.setYearMonth(YearMonth.of(2022, 10));
+        assertNull(dummy.getId());
+        assertEquals(YearMonth.of(2022, 10), dummy.getYearMonth());
+        assertNull(dummy.getAmount());
     }
 
     @Test
@@ -64,8 +64,8 @@ class PurchaseEntityTest {
     void setAmountTest() {
         PurchaseEntity dummy = new PurchaseEntity();
         dummy.setAmount(Integer.MAX_VALUE);
-        assertEquals(null, dummy.getId());
-        assertEquals(null, dummy.getMonth());
+        assertNull(dummy.getId());
+        assertNull(dummy.getYearMonth());
         assertEquals(Integer.MAX_VALUE, dummy.getAmount());
     }
 }
